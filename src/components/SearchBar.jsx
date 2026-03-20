@@ -17,15 +17,26 @@ export const SearchBar = ({
 };
 
 const StyledInput = styled.input`
-  background-color: #ffffff;
-  border: 2px solid #e9c46a;
-  border-radius: 8px;
-  font-size: 15px;
-  padding: 10px 14px;
-  width: 50%;
-  transition: border-color 0.2s;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 14px;
+  padding: 12px 14px;
+  width: min(560px, 100%);
+  flex: 1 1 320px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 140ms ease, border-color 140ms ease,
+    background-color 140ms ease;
+
+  &::placeholder {
+    color: rgba(100, 116, 139, 0.9);
+  }
+
   &:focus {
-    border-color: #f4a261;
+    border-color: rgba(245, 158, 11, 0.55);
     outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.18),
+      0 16px 40px rgba(15, 23, 42, 0.10);
   }
 `;

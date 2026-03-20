@@ -4,10 +4,10 @@ import { KEY_PRODUCTS_FAVORITES } from "../constants";
 
 export const useProducts = ({ path = "", searchValue = null }) => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [productsFavorites, setProductsFavorites] = useState(() => {
     const currentProductsFavorites = localStorage.getItem(
-      KEY_PRODUCTS_FAVORITES
+      KEY_PRODUCTS_FAVORITES,
     );
     return currentProductsFavorites ? JSON.parse(currentProductsFavorites) : [];
   });
@@ -17,7 +17,6 @@ export const useProducts = ({ path = "", searchValue = null }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setIsLoading(true);
         const response = await fetch(apiUrl);
         const data = await response.json();
         if (!response.ok) alert(`Error al obtener los datos ${data.message}`);
@@ -34,7 +33,7 @@ export const useProducts = ({ path = "", searchValue = null }) => {
   useEffect(() => {
     localStorage.setItem(
       KEY_PRODUCTS_FAVORITES,
-      JSON.stringify(productsFavorites)
+      JSON.stringify(productsFavorites),
     );
   }, [productsFavorites]);
 

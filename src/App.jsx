@@ -85,43 +85,90 @@ function App() {
 }
 
 const ProductButton = styled.button`
-  background-color: #d1a638;
-  border: none;
-  border-radius: 8px;
-  color: #f0f0f0;
+  margin-left: auto;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  color: #111827;
   font-size: 14px;
-  padding: 8px 16px;
+  font-weight: 650;
+  padding: 10px 14px;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  white-space: nowrap;
+
+  &:hover {
+    filter: brightness(1.02);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 860px) {
+    margin-left: 0;
+    width: 100%;
+    justify-self: stretch;
+  }
 `;
 
 const Container = styled.div`
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
-  padding: 20px;
+  padding: 28px 18px 56px;
   width: 100%;
 `;
 
 const ContainerBar = styled.div`
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 14px;
   width: 100%;
   margin-bottom: 20px;
+  padding: 14px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  position: sticky;
+  top: 10px;
+  z-index: 10;
+
+  @media (max-width: 860px) {
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
 `;
 
 const ProductContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  align-items: stretch;
 `;
 
 const Title = styled.h1`
-  color: #264653;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 6px 0 18px;
+
+  @media (min-width: 768px) {
+    font-size: 34px;
+  }
 `;
 
 export default App;
