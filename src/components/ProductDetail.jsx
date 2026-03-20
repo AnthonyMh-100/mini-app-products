@@ -45,90 +45,122 @@ export const ProductDetail = () => {
 
 const Container = styled.div`
   align-items: center;
-  background-color: #f9f9f9;
+  background: transparent;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
-  width: 100vw;
+  padding: 28px 18px 56px;
+  width: 100%;
 `;
 
 const ContainerCard = styled.div`
-  background-color: #ffffff;
-  border: 1px solid #d1f0e8;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
   margin: 0 auto;
   max-width: 480px;
   padding: 24px;
   text-align: center;
   width: 100%;
+  backdrop-filter: blur(10px);
 `;
 
 const Description = styled.p`
-  color: #666;
-  font-size: 15px;
-  line-height: 1.5;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
   margin-bottom: 16px;
 `;
 
 const Image = styled.img`
-  border-radius: 12px;
-  margin-bottom: 20px;
-  max-height: 260px;
+  border-radius: 16px;
+  margin: 8px auto 18px;
+  max-height: 320px;
   object-fit: contain;
   width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 245, 249, 0.9),
+    rgba(241, 245, 249, 0.55)
+  );
+  border: 1px solid rgba(15, 23, 42, 0.06);
 `;
 
 const ProductButton = styled.button`
   margin-top: auto;
   width: 100%;
-  padding: 10px 0;
-  background-color: #e9f5f2;
-  color: #264653;
-  border: 1px solid #cde5df;
-  border-radius: 8px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.82));
+  color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
   &:hover {
-    background-color: #dff1ec;
+    filter: brightness(1.02);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0px);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
+  }
+  &:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
   }
 `;
 
 const InfoContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 14px;
-  margin: 16px 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  margin: 14px 0 22px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const InfoItem = styled.div`
   flex: 1;
   text-align: center;
+  padding: 10px 8px;
+  border-radius: 14px;
+  background: rgba(241, 245, 249, 0.55);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
 `;
 
 const Label = styled.span`
   display: block;
   font-size: 12px;
-  color: #64748b;
+  color: var(--muted);
   margin-bottom: 4px;
 `;
 
 const Title = styled.h2`
-  color: #264653;
+  color: var(--text);
   font-size: 22px;
-  margin-bottom: 12px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
 `;
 
 const Value = styled.span`
   font-size: 15px;
-  font-weight: 600;
-  color: #264653;
+  font-weight: 800;
+  color: var(--text);
 `;
